@@ -4,8 +4,16 @@ const lengthOfLoanInput = document.getElementById('length-of-loan-input')
 const calculateBtn = document.getElementById('calculate-btn')
 const motgageFinalResult = document.getElementById('motgage-final-result')
 
+const errorMessage = 'There is an error in the form, please check it! 😥';
+const successMessage = '🧮 Your monthly mortgage payment will be: ';
+
 calculateBtn.addEventListener('click', function(e){
-    calculateMortgagePayment()
+    if (amountInput.validity.valid && interestRateInput.validity.valid && lengthOfLoanInput.validity.valid) {
+        calculateMortgagePayment()
+        // console.log('Tenemos contenido, y es ' + amountInput.value)
+    } else {
+        motgageFinalResult.textContent = errorMessage
+    }
 })
 function calculateMortgagePayment() {    
     const dineroPrestado = amountInput.value
@@ -28,21 +36,7 @@ function calculateMortgagePayment() {
     console.log('División: ' + division)
     console.log('A pagar: ' + letra)
 
-    motgageFinalResult.textContent = letra.toFixed(2)
+    motgageFinalResult.textContent = successMessage + letra.toFixed(2)
     
 }
 
-/*
-const testArray = ['🎸', '🥁', '🎹']
-let randomNumber = Math.floor( Math.random() * testArray.length )
-
-console.log(randomNumber)
-mainContent.textContent += testArray[randomNumber]
-
-testArray.forEach(instrument => mainContent.textContent += instrument)*/
-
-// console.log(Math.pow(3,2))
-// console.log(3 ** 2)
-
-// let numberTest = 33.65793
-// console.log(numberTest.toFixed(2))

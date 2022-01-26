@@ -16,6 +16,7 @@ html, body {
 
 body {
     font-family: 'Lato', sans-serif;
+    padding: 15px;
 }
 
 .mortgage-form--help {
