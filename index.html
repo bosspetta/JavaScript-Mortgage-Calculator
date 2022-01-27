@@ -8,33 +8,31 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <header>
-            <h1>Mortgage calculator 🧮</h1>
-        </header>
-        <main>
-            <section id="main-content">
-                <from id="mortgage-form" action="" class="mortgage-form">
-                    <div class="mortgage-form--row">
-                        <label for="amount-input">Principal loan amount</label>
-                        <input type="number" name="amount-input" id="amount-input" min="100000" placeholder="Min 100000" required>
-                        <p class="mortgage-form--help">Min 100000</p>
-                    </div>
-                    <div class="mortgage-form--row">
-                        <label for="interest-rate-input">Interest rate</label>
-                        <input type="number" name="amount-input" id="interest-rate-input" min="1" max="20" placeholder="Min 1% max 20%" required>
-                        <p class="mortgage-form--help">Min 1% max 20%, without '%' symbol</p>
-                    </div>
-                    <div class="mortgage-form--row">
-                        <label for="length-of-loan-input">Length of loan</label>
-                        <input type="number" name="amount-input" id="length-of-loan-input" min="1" max="40" placeholder="Min 1 year, max 40 years" required>
-                        <p class="mortgage-form--help">Min 1 year, max 40 years</p>
-                    </div>
-                    <div class="mortgage-form--row mortgage-form--row__button-wrapper">
-                        <button type="button" id="calculate-btn">Calculate</button>
-                    </div>
-                </from>
-                <p class="motgage-result"><span id="motgage-final-result"></span></p>
-            </section>
+        <main class="mortgage-form-wrapper">
+            <header>
+                <h1>Mortgage calculator 🧮</h1>
+            </header>
+            <form id="mortgage-form" action="" class="mortgage-form">
+                <div class="mortgage-form--row">
+                    <label for="amount-input">Principal loan amount</label>
+                    <input type="number" name="amount-input" id="amount-input" min="100000" placeholder="Min 100000" required>
+                    <p class="mortgage-form--help">Min 100000</p>
+                </div>
+                <div class="mortgage-form--row">
+                    <label for="interest-rate-input">Interest rate</label>
+                    <input type="number" name="amount-input" id="interest-rate-input" min="1" max="20" placeholder="Min 1% max 20%" required>
+                    <p class="mortgage-form--help">Min 1% max 20%, without '%' symbol</p>
+                </div>
+                <div class="mortgage-form--row">
+                    <label for="length-of-loan-input">Length of loan</label>
+                    <input type="number" name="amount-input" id="length-of-loan-input" min="1" max="40" placeholder="Min 1 year, max 40 years" required>
+                    <p class="mortgage-form--help">Min 1 year, max 40 years</p>
+                </div>
+                <div class="mortgage-form--row mortgage-form--row__button-wrapper">
+                    <button type="button" id="calculate-btn">Calculate</button>
+                </div>
+            </form>
+            <p class="motgage-result"><span id="motgage-final-result"></span></p>
         </main>
         
         <script src="index.pack.js"></script>

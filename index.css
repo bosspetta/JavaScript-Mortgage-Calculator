@@ -1,5 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+:root {
+    --shadow-color: 0deg 0% 12%;
+    --shadow-elevation-low:
+        0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+        0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
+        1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.34);
+    --shadow-elevation-medium:
+        0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+        0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+        2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+        5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+    --shadow-elevation-high:
+        0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+        1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 0.34),
+        2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color) / 0.34),
+        4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color) / 0.34),
+        7.1px 14.3px 18px -1.4px hsl(var(--shadow-color) / 0.34),
+        11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 0.34),
+        17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.34),
+        25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.34);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -16,7 +38,58 @@ html, body {
 
 body {
     font-family: 'Lato', sans-serif;
-    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+
+    background-image: linear-gradient(4deg,
+        hsl(305deg 100% 35%) 0%,
+        hsl(309deg 57% 47%) 13%,
+        hsl(313deg 53% 55%) 25%,
+        hsl(317deg 55% 61%) 37%,
+        hsl(322deg 58% 67%) 50%,
+        hsl(328deg 62% 73%) 63%,
+        hsl(335deg 69% 79%) 75%,
+        hsl(345deg 79% 84%) 87%,
+        hsl(0deg 100% 90%) 100%);
+}
+
+.mortgage-form-wrapper {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px 30px 0;
+    box-shadow: var(--shadow-elevation-medium);
+    min-width: 420px;
+}
+
+.mortgage-form-wrapper h1 {
+    margin: 0 0 15px;
+}
+
+.mortgage-form-wrapper input[type="number"] {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    font-size: small;
+    padding: 11px;
+}
+
+.mortgage-form-wrapper input[type="number"]:focus:invalid {
+    border: 1px solid red;
+}
+
+.mortgage-form-wrapper p {
+    margin: 0 0 15px;
+}
+
+p.motgage-result {
+    margin: 0 0 15px;
+}
+
+.mortgage-form-wrapper label {
+    display: block;
 }
 
 .mortgage-form--help {
@@ -25,20 +98,17 @@ body {
     color: #a9a9a9;
 }
 
-label {
-    display: block;
+.mortgage-form--row__button-wrapper {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-p {
-    margin: 0 0 15px;
-}
-
-input {
-    width: 100%;
-    font-size: small;
-    padding: 10px
-}
-
-input:focus:invalid {
-    border: 1px solid red;
+.mortgage-form--row__button-wrapper button {
+    border: none;
+    border-radius: 5px;
+    background-color: #b300a4;
+    padding: 12px 20px;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
 }
