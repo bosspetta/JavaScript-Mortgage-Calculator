@@ -2,18 +2,47 @@ const amountInput = document.getElementById('amount-input')
 const interestRateInput = document.getElementById('interest-rate-input')
 const lengthOfLoanInput = document.getElementById('length-of-loan-input')
 const calculateBtn = document.getElementById('calculate-btn')
-const mortgageFinalResult = document.getElementById('mortgage-final-result');
+const resetBtn = document.getElementById('reset-btn')
+const mortgageFinalResult = document.getElementById('mortgage-final-result')
 
-const errorMessage = 'There is an error in the form, please check it! 😥';
-const successMessage = '🧮 Your monthly mortgage payment will be: ';
+const errorMessage = 'There is an error in the form, please check it! 😥'
+const successMessage = '🧮 Your monthly mortgage payment will be: '
+
+amountInput.addEventListener('keydown',function(e){
+    if (!amountInput.validity.valid) {
+      amountInput.classList.add('error')
+    }
+})
+interestRateInput.addEventListener('keydown',function(e){
+    if (!interestRateInput.validity.valid) {
+        interestRateInput.classList.add('error')
+    }
+})
+lengthOfLoanInput.addEventListener('keydown',function(e){
+    if (!lengthOfLoanInput.validity.valid) {
+        lengthOfLoanInput.classList.add('error')
+    }
+})
 
 calculateBtn.addEventListener('click', function(e){
     if (amountInput.validity.valid && interestRateInput.validity.valid && lengthOfLoanInput.validity.valid) {
         calculateMortgagePayment()
     } else {
         mortgageFinalResult.textContent = errorMessage
+        mortgageFinalResult.classList.add('error-message')
+        calculateBtn.classList.add('form-error')
+        if (!amountInput.validity.valid) {
+            amountInput.classList.add('error')
+        }
+        if (!interestRateInput.validity.valid) {
+            interestRateInput.classList.add('error')
+        }
+        if (!lengthOfLoanInput.validity.valid) {
+            lengthOfLoanInput.classList.add('error')
+        }
     }
 })
+
 function calculateMortgagePayment() {    
     const dineroPrestado = amountInput.value
     const tiempoHipoteca = lengthOfLoanInput.value * 12
@@ -36,5 +65,15 @@ function calculateMortgagePayment() {
     console.log('A pagar: ' + letra)
 
     mortgageFinalResult.textContent = successMessage + letra.toFixed(2)
+    mortgageFinalResult.classList.add('success-message')
+    calculateBtn.classList.add('form-success')
+    calculateBtn.setAttribute('disabled','disabled')
+    resetBtn.style.display = 'block'
 }
 
+resetBtn.addEventListener('click', function() {
+    resetBtn.style.display = 'none'
+    mortgageFinalResult.textContent = ''
+    calculateBtn.removeAttribute('disabled')
+    calculateBtn.classList.remove('form-success')
+})

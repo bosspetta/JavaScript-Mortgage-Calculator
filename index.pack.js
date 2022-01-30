@@ -77,18 +77,47 @@ var amountInput = document.getElementById('amount-input');
 var interestRateInput = document.getElementById('interest-rate-input');
 var lengthOfLoanInput = document.getElementById('length-of-loan-input');
 var calculateBtn = document.getElementById('calculate-btn');
+var resetBtn = document.getElementById('reset-btn');
 var mortgageFinalResult = document.getElementById('mortgage-final-result');
 
 var errorMessage = 'There is an error in the form, please check it! 😥';
 var successMessage = '🧮 Your monthly mortgage payment will be: ';
+
+amountInput.addEventListener('keydown', function (e) {
+    if (!amountInput.validity.valid) {
+        amountInput.classList.add('error');
+    }
+});
+interestRateInput.addEventListener('keydown', function (e) {
+    if (!interestRateInput.validity.valid) {
+        interestRateInput.classList.add('error');
+    }
+});
+lengthOfLoanInput.addEventListener('keydown', function (e) {
+    if (!lengthOfLoanInput.validity.valid) {
+        lengthOfLoanInput.classList.add('error');
+    }
+});
 
 calculateBtn.addEventListener('click', function (e) {
     if (amountInput.validity.valid && interestRateInput.validity.valid && lengthOfLoanInput.validity.valid) {
         calculateMortgagePayment();
     } else {
         mortgageFinalResult.textContent = errorMessage;
+        mortgageFinalResult.classList.add('error-message');
+        calculateBtn.classList.add('form-error');
+        if (!amountInput.validity.valid) {
+            amountInput.classList.add('error');
+        }
+        if (!interestRateInput.validity.valid) {
+            interestRateInput.classList.add('error');
+        }
+        if (!lengthOfLoanInput.validity.valid) {
+            lengthOfLoanInput.classList.add('error');
+        }
     }
 });
+
 function calculateMortgagePayment() {
     var dineroPrestado = amountInput.value;
     var tiempoHipoteca = lengthOfLoanInput.value * 12;
@@ -111,7 +140,18 @@ function calculateMortgagePayment() {
     console.log('A pagar: ' + letra);
 
     mortgageFinalResult.textContent = successMessage + letra.toFixed(2);
+    mortgageFinalResult.classList.add('success-message');
+    calculateBtn.classList.add('form-success');
+    calculateBtn.setAttribute('disabled', 'disabled');
+    resetBtn.style.display = 'block';
 }
+
+resetBtn.addEventListener('click', function () {
+    resetBtn.style.display = 'none';
+    mortgageFinalResult.textContent = '';
+    calculateBtn.removeAttribute('disabled');
+    calculateBtn.classList.remove('form-success');
+});
 
 /***/ })
 /******/ ]);
