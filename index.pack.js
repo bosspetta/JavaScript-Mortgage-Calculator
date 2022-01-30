@@ -77,7 +77,7 @@ var amountInput = document.getElementById('amount-input');
 var interestRateInput = document.getElementById('interest-rate-input');
 var lengthOfLoanInput = document.getElementById('length-of-loan-input');
 var calculateBtn = document.getElementById('calculate-btn');
-var motgageFinalResult = document.getElementById('motgage-final-result');
+var mortgageFinalResult = document.getElementById('mortgage-final-result');
 
 var errorMessage = 'There is an error in the form, please check it! 😥';
 var successMessage = '🧮 Your monthly mortgage payment will be: ';
@@ -85,9 +85,8 @@ var successMessage = '🧮 Your monthly mortgage payment will be: ';
 calculateBtn.addEventListener('click', function (e) {
     if (amountInput.validity.valid && interestRateInput.validity.valid && lengthOfLoanInput.validity.valid) {
         calculateMortgagePayment();
-        // console.log('Tenemos contenido, y es ' + amountInput.value)
     } else {
-        motgageFinalResult.textContent = errorMessage;
+        mortgageFinalResult.textContent = errorMessage;
     }
 });
 function calculateMortgagePayment() {
@@ -111,7 +110,7 @@ function calculateMortgagePayment() {
     console.log('División: ' + division);
     console.log('A pagar: ' + letra);
 
-    motgageFinalResult.textContent = successMessage + letra.toFixed(2);
+    mortgageFinalResult.textContent = successMessage + letra.toFixed(2);
 }
 
 /***/ })

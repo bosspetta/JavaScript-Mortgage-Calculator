@@ -2,7 +2,7 @@ const amountInput = document.getElementById('amount-input')
 const interestRateInput = document.getElementById('interest-rate-input')
 const lengthOfLoanInput = document.getElementById('length-of-loan-input')
 const calculateBtn = document.getElementById('calculate-btn')
-const motgageFinalResult = document.getElementById('motgage-final-result')
+const mortgageFinalResult = document.getElementById('mortgage-final-result');
 
 const errorMessage = 'There is an error in the form, please check it! 😥';
 const successMessage = '🧮 Your monthly mortgage payment will be: ';
@@ -10,9 +10,8 @@ const successMessage = '🧮 Your monthly mortgage payment will be: ';
 calculateBtn.addEventListener('click', function(e){
     if (amountInput.validity.valid && interestRateInput.validity.valid && lengthOfLoanInput.validity.valid) {
         calculateMortgagePayment()
-        // console.log('Tenemos contenido, y es ' + amountInput.value)
     } else {
-        motgageFinalResult.textContent = errorMessage
+        mortgageFinalResult.textContent = errorMessage
     }
 })
 function calculateMortgagePayment() {    
@@ -36,7 +35,6 @@ function calculateMortgagePayment() {
     console.log('División: ' + division)
     console.log('A pagar: ' + letra)
 
-    motgageFinalResult.textContent = successMessage + letra.toFixed(2)
-    
+    mortgageFinalResult.textContent = successMessage + letra.toFixed(2)
 }
 
