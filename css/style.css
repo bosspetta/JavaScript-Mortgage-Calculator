@@ -22,6 +22,7 @@ body {
   justify-content: center;
   background: transparent url("../img/background.jpg") center center no-repeat;
   background-size: cover;
+  padding: 0 15px;
 }
 
 a {
@@ -52,6 +53,12 @@ a:hover, a:focus {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
   min-width: 420px;
 }
+@media screen and (max-width: 480px) {
+  .mortgage-form-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+}
 .mortgage-form-wrapper h1 {
   margin: 0 0 15px;
 }
@@ -65,10 +72,14 @@ a:hover, a:focus {
   font-size: small;
   padding: 11px;
 }
-.mortgage-form-wrapper input[type=number]:focus:invalid {
+.mortgage-form-wrapper input[type=number]:invalid {
   background-color: rgba(240, 128, 128, 0.075);
   border: 1px solid lightcoral;
   outline: none;
+}
+.mortgage-form-wrapper input[type=number]:empty {
+  background-color: white;
+  border: 1px solid #ddd;
 }
 .mortgage-form-wrapper input[type=number]:valid {
   background-color: rgba(32, 178, 170, 0.075);

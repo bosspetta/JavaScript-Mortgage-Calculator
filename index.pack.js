@@ -83,19 +83,25 @@ var mortgageFinalResult = document.getElementById('mortgage-final-result');
 var errorMessage = 'There is an error in the form, please check it! 😥';
 var successMessage = '🧮 Your monthly mortgage payment will be: ';
 
-amountInput.addEventListener('keydown', function (e) {
+amountInput.addEventListener('focusout', function (e) {
     if (!amountInput.validity.valid) {
         amountInput.classList.add('error');
+    } else {
+        amountInput.classList.remove('error');
     }
 });
-interestRateInput.addEventListener('keydown', function (e) {
+interestRateInput.addEventListener('focusout', function (e) {
     if (!interestRateInput.validity.valid) {
         interestRateInput.classList.add('error');
+    } else {
+        interestRateInput.classList.remove('error');
     }
 });
-lengthOfLoanInput.addEventListener('keydown', function (e) {
+lengthOfLoanInput.addEventListener('focusout', function (e) {
     if (!lengthOfLoanInput.validity.valid) {
         lengthOfLoanInput.classList.add('error');
+    } else {
+        lengthOfLoanInput.classList.remove('error');
     }
 });
 
