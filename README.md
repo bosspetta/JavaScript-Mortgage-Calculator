@@ -20,3 +20,5 @@ We use sass for styling, you can turn on watch-mode too for that
 ```code
 > sass --watch scss:css
 ```
+
+You can test the [demo here](https://bosspetta.github.io/JavaScript-Mortgage-Calculator/) 😊
