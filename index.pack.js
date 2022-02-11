@@ -125,27 +125,27 @@ calculateBtn.addEventListener('click', function (e) {
 });
 
 function calculateMortgagePayment() {
-    var dineroPrestado = amountInput.value;
-    var tiempoHipoteca = lengthOfLoanInput.value * 12;
-    var interes = interestRateInput.value; // Interés en bruto, sin preparar
-    var interesCalculado = interes / 100; // Lo dividimos por 100
-    var interesPreparado = interesCalculado / 12; // Y lo dividimos por 12 para prepararlo
+    var borrowedMoney = amountInput.value;
+    var lengthOfLoan = lengthOfLoanInput.value * 12;
+    var interestRate = interestRateInput.value; // Interés en bruto, sin preparar
+    var calculedInterest = interestRate / 100; // Lo dividimos por 100
+    var interesPreparado = calculedInterest / 12; // Y lo dividimos por 12 para prepararlo
 
-    var porcentaje = interesPreparado; // 0.065 / 12 = 6.5% / 12
-    var porcentajeMasUno = interesPreparado + 1;
-    var elevado = Math.pow(porcentajeMasUno, tiempoHipoteca);
-    var primerDividendo = porcentaje * elevado;
-    var segundoDividendo = elevado - 1;
-    var division = primerDividendo / segundoDividendo;
-    var hipoteca = dineroPrestado;
-    var letra = hipoteca * division;
+    var percentage = interesPreparado; // 0.065 / 12 = 6.5% / 12
+    var percentagePlusOne = interesPreparado + 1;
+    var exponentiationOperator = Math.pow(percentagePlusOne, lengthOfLoan);
+    var firstDividend = percentage * exponentiationOperator;
+    var secondDividend = exponentiationOperator - 1;
+    var division = firstDividend / secondDividend;
+    var mortgage = borrowedMoney;
+    var quotas = mortgage * division;
 
-    console.log('Parte de arriba de la división: ' + primerDividendo);
-    console.log('Parte de abajo de la división: ' + segundoDividendo);
+    console.log('Parte de arriba de la división: ' + firstDividend);
+    console.log('Parte de abajo de la división: ' + secondDividend);
     console.log('División: ' + division);
-    console.log('A pagar: ' + letra);
+    console.log('A pagar: ' + quotas);
 
-    mortgageFinalResult.textContent = successMessage + letra.toFixed(2);
+    mortgageFinalResult.textContent = successMessage + quotas.toFixed(2);
     mortgageFinalResult.classList.add('success-message');
     calculateBtn.classList.add('form-success');
     calculateBtn.setAttribute('disabled', 'disabled');
